@@ -12,6 +12,17 @@ public class VerletObject : MonoBehaviour
    [SerializeField]
     public Vector2 acceleration;
 
+    [SerializeField]
+    private float mass = 1.0f;
+
+    public void setMass(float m) {
+        mass = Mathf.Max(0.01f, m); // no valori nulli
+    }
+
+    public float getMass() {
+        return mass;
+    }
+
     private float radius;
 
      void OnEnable() {
@@ -41,11 +52,16 @@ public class VerletObject : MonoBehaviour
 
     }
 
-    public void accelerate(Vector2 acc) {
-        acceleration += acc;
+    public void accelerate(Vector2 acc, bool isForce = false) {
+    if (isForce)
+        acceleration += acc / mass;  // applica forza
+    else
+        acceleration += acc;         // applica accelerazione diretta (come la gravità)
     }
 
+
+
     public float getRadius() {
-        return radius;
+        return transform.localScale.x / 2f;
     }
 }
