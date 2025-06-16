@@ -39,18 +39,23 @@ public class VerletObject : MonoBehaviour
     }
 
     public void updatePosition(float dt) {
+        // Verifica NaN
+        if (float.IsNaN(position_current.x) || float.IsNaN(position_current.y))
+        {
+            Debug.LogError("NaN rilevato nella posizione corrente. Oggetto: " + gameObject.name);
+            return;
+        }
+
         transform.position = position_current;
 
         Vector2 velocity = position_current - position_old;
 
         position_old = position_current;
-
         position_current = position_current + velocity + acceleration * dt * dt;
 
         acceleration = Vector2.zero;
-
-
     }
+
 
     public void accelerate(Vector2 acc, bool isForce = false) {
     if (isForce)

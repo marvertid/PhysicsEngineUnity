@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 474567515}
   - component: {fileID: 474567514}
   - component: {fileID: 474567513}
+  - component: {fileID: 474567516}
   m_Layer: 0
   m_Name: InclinedPlane
   m_TagString: Untagged
@@ -570,6 +571,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20}
+--- !u!114 &474567516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474567512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de399b7536a0a9e0832d2b81f37b578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planeLength: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,9 +834,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80367a97325aaba7fbff832813060c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeAngle: 30
+  planeAngle: 21.8
   gravityMagnitude: 60
-  inclinedPlane: {fileID: 0}
+  inclinedPlane: {fileID: 474567516}
 --- !u!4 &826129869
 Transform:
   m_ObjectHideFlags: 0
